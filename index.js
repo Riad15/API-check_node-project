@@ -7,6 +7,7 @@
 
 // dependency:
 const http = require('http');
+const { handleServer } = require('./pages/handleReqRes')
 
 // app object
 const app = {}
@@ -25,10 +26,7 @@ app.createServer = () => {
 }
 
 // handle request response
-app.handleServer = (req, res) => {
-    // response handle
-    res.end("server is running continue");
-}
+app.handleServer = handleServer;
 
 // start server
 app.createServer();
