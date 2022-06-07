@@ -8,13 +8,18 @@
 // dependency:
 const http = require('http');
 const { handleServer } = require('./pages/handleReqRes')
+const data = require('./lib/data')
 
+// test  create data
+data.create('test', 'newFile', { name: 'bangladesh', language: 'bangla' }, function (err) {
+    console.log('error was', err);
+})
 // app object
 const app = {}
 
 // conflagration
 app.config = {
-    port: 5000
+    port: 5000,
 };
 
 //create server
