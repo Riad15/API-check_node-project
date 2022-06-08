@@ -5,15 +5,11 @@ const url = require('url');
 const routes = require('../route');
 const { notFound } = require('../pages/routeHandler/notFound');
 
-// app object
-
-
 // module scaffolding
 const handler = {};
 
-
-
 handler.handleServer = (req, res) => {
+    6
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
     const trimmedPath = path.replace(/^\/+|\/+$/g, '');
@@ -29,19 +25,13 @@ handler.handleServer = (req, res) => {
         queryString,
         handleObject
     }
-
-
     console.log(queryString);
-
     const decoder = new StringDecoder('utf-8');
     let realData = '';
-
     const choseHandler = routes[trimmedPath] ? routes[trimmedPath] : notFound;
-
 
     req.on('data', (buffer) => {
         realData += decoder.write(buffer)
-
     })
     req.on('end', () => {
         realData += decoder.end();
@@ -59,6 +49,5 @@ handler.handleServer = (req, res) => {
         res.end("server is running continue");
     })
     // response handle
-
 }
 module.exports = handler;

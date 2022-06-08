@@ -11,7 +11,7 @@ const { handleServer } = require('./pages/handleReqRes')
 const data = require('./lib/data')
 
 // test  create data
-data.create('test', 'newFile', { name: 'bangladesh', language: 'bangla' }, function (err) {
+data.update('test', 'newFile', { name: 'katar', language: 'arbi' }, function (err) {
     console.log('error was', err);
 })
 // app object
